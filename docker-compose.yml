@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+
+    workspace:
+        build:
+            context: workspace
+            args:
+                - NODE_VERSION=${NODE_VERSION}
+                - TYPESCRIPT_VERSION=${TYPESCRIPT_VERSION}
+        command: bash -c "tail -F anything"
+        working_dir: /usr/share/nginx/html
+        volumes:
+            - ./project:/usr/share/nginx/html
